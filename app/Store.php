@@ -39,4 +39,14 @@ class Store extends Model
    {
     return $this->hasMany('App\Notice');
    }
+
+   public function products()
+   {
+    return $this->hasMany('App\Product');
+   }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

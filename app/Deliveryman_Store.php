@@ -8,7 +8,7 @@ class Deliveryman_Store extends Model
 {
     protected $table='deliverymans_stores';
 
-    protected $fillable=['available','user_id','store_id'];
+    protected $fillable=['available','imei','latitude','longitude','user_id','store_id'];
 
      public function user()
     {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDeliverymansStoresTable extends Migration
+class AddPhonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class AddDeliverymansStoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('deliverymans_stores', function (Blueprint $table) {
+        Schema::create('phones', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyinteger('available')->default('0');
-            $table->biginteger('imei');
-            $table->decimal('latitude', 10, 8)->nullable();
-            $table->decimal('longitude', 11, 8)->nullable();
+            $table->integer('number');
             $table->integer('user_id')->unsigned();
-            $table->integer('store_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('store_id')->references('id')->on('stores');
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ class AddDeliverymansStoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deliverymans_stores');
+        Schema::dropIfExists('phones');
     }
 }

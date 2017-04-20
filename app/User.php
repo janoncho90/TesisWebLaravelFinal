@@ -42,14 +42,29 @@ class User extends Authenticatable
         return $this->hasMany('App\Address');
     }
 
+     public function phones()
+    {
+        return $this->hasMany('App\Phone');
+    }
+
     public function califications_stores()
     {
         return $this->hasMany('App\Calification_Store');
     }
 
+    public function califications_products()
+    {
+        return $this->hasMany('App\Calification_Product');
+    }
+
     public function comments_stores()
     {
         return $this->hasMany('App\Comment_Store');
+    }
+
+    public function comments_products()
+    {
+        return $this->hasMany('App\Comment_Product');
     }
 
     public function candidates_notices()
@@ -66,4 +81,27 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Favorite_Store');
     }
+
+     public function favorites_products()
+    {
+        return $this->hasMany('App\Favorite_Product');
+    }
+
+
+    //relaciones de pedidos
+
+    //repartidor
+
+    public function deliverymans_orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
+    //pedidor
+
+     public function ordened_orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
 }
