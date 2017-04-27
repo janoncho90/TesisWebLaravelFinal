@@ -30,9 +30,9 @@ class Store extends Model
     return $this->hasMany('App\Calification_Store');
    }
 
-    public function works_users()
+   public function deliverymans()
    {
-    return $this->hasMany('App\Deliveryman_Store');
+    return $this->hasMany('App\Deliveryman');
    }
 
    public function notices()

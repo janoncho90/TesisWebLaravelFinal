@@ -21,9 +21,12 @@ class AddDeliverymansTable extends Migration
             $table->tinyinteger('available')->default(0);
 
             $table->integer('user_id')->unsigned();
+            $table->integer('store_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
-            
+            $table->foreign('store_id')->references('id')->on('stores');
+
+
             $table->timestamps();
         });
     }

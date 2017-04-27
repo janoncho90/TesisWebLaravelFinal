@@ -8,7 +8,7 @@ class Calification_Store extends Model
 {
     protected $table='califications_stores';
 
-    protected $fillable=['value','','user_id','store_id'];
+    protected $fillable=['value','user_id','store_id'];
 
      public function user()
     {

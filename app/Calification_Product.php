@@ -8,7 +8,7 @@ class Calification_Product extends Model
 {
     protected $table='califications_products';
 
-    protected $fillable=['value','','user_id','product_id'];
+    protected $fillable=['value','user_id','product_id'];
 
      public function user()
     {
