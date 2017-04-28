@@ -15,13 +15,15 @@ Route::get('/', function () {
     return view('home.index');
 });
 
+Route::get('/admin', function () {
+		 return view('admin.index');
+	});
+
 
 Route::group(['prefix'=> 'admin'],function()
 {
-    Route::resource('users','AdminController');
+    Route::resource('users','UsersController');
 
+    Route::resource('stores','StoresController');
 
-	Route::get('/admin', function () {
-		 return view('admin.index');
-	});
 });

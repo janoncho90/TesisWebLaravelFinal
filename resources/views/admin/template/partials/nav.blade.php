@@ -29,10 +29,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
         <li><a href="{{route('users.index')}}"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-education"></span> Administradores</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Tiendas</a></li>
+        
+        <li><a href="{{route('stores.index')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Tiendas</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Roles</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-time"></span> Estados</a></li>
       </ul>

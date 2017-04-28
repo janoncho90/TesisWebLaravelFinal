@@ -9,8 +9,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
-        return view('admin.users.index')->with('users',$users);
+        
+        return view('admin.index');
     }
 
     public function create()
@@ -20,9 +20,9 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
-        $user=new User($request->all());
+        /*$user=new User($request->all());
         $user->password=password_hash ( $request->password, PASSWORD_BCRYPT ); 
 		$user->save();
-		dd('usuario creadocon exito');
+		return redirect('admin/users');*/
     }
 }
