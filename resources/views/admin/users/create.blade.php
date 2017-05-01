@@ -1,7 +1,7 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Crear Usuario')
 @section('content')
-
+<br><br><br><br><br>
 <div class="row">
   <div class="col-md-4"></div>
 	  <div class="col-md-4">
@@ -9,7 +9,7 @@
 
 		<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3 class="panel-title">Registro de Usuario</h3>
+			    <h3 class="panel-title">Agregar un Nuevo Usuario</h3>
 			  </div>
 			  <div class="panel-body">
 			    {!! Form::open(['route'=>'users.store', 'method'=>'POST']) !!}
@@ -71,5 +71,7 @@
 	  </div>
   <div class="col-md-4"></div>
 </div>
+
+<br><br><br>
 
 @endsection

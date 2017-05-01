@@ -1,7 +1,7 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Crear Rol')
 @section('content')
-
+<br><br><br>
 <div class="row">
   <div class="col-md-4"></div>
 	  <div class="col-md-4">

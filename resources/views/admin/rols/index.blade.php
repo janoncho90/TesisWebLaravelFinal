@@ -1,8 +1,8 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Lista de Roles')
 @section('content')
 
-
+<br><br><br>
 <div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3 class="panel-title">Listado de Roles de los Usuarios</h3>

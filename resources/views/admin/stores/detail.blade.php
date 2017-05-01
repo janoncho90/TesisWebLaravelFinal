@@ -1,9 +1,8 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Detalle de Usuario')
 @section('content')
 
-
-
+<br><br><br>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2 class="panel-title">Dettalle de la Tienda {{$store->name}}</h2>

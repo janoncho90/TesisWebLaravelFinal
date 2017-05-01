@@ -1,7 +1,7 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Lista de Usuarios')
 @section('content')
-
+<br><br><br>
 
 <div class="panel panel-default">
 

@@ -1,8 +1,8 @@
-@extends('admin.template.main')
+@extends('admin.template.adminmain')
 @section('title','Lista de Tiendas')
 @section('content')
 
-
+<br><br><br>
 <div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3 class="panel-title">Listado de Tiendas Registradas</h3>
@@ -35,7 +35,7 @@
                                	@endif
                                	
                                	
-                               	<td><a href="{{route('stores.show',$store->id)}}" class="btn btn-info">Detalle</a></td>
+                               	<td><a href="{{route('stores.show',$store->id)}}" class="btn btn-warning">Detalle</a></td>
                                </tr>
 					      	@endforeach
 					      </tbody>
