@@ -26,4 +26,8 @@ Route::group(['prefix'=> 'admin'],function()
 
     Route::resource('stores','StoresController');
 
+    Route::resource('rols','RolsController');
+
+    Route::resource('states','StatesController');
+
 });

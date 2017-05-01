@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Store;
+use App\User;
 
 class StoresController extends Controller
 {
@@ -23,4 +24,12 @@ class StoresController extends Controller
         /*$store=new Store($request->all());
 		return redirect('admin/users');*/
     }
+
+    public function show($id)
+    {
+        $store=Store::find($id);
+        $user=User::find($store->user_id);
+        return view('admin.stores.detail')->with('store',$store)->with('user',$user);
+    }
+
 }

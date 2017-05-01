@@ -25,16 +25,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="{{url('admin')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 25px;"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href=""><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+        <li><a href="{{url('admin')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
         <li><a href="{{route('users.index')}}"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
         
         <li><a href="{{route('stores.index')}}"><span class="glyphicon glyphicon-shopping-cart"></span> Tiendas</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Roles</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-time"></span> Estados</a></li>
+        <li><a href="{{route('rols.index')}}"><span class="glyphicon glyphicon-lock"></span> Roles</a></li>
+        <li><a href="{{route('states.index')}}"><span class="glyphicon glyphicon-time"></span> Estados</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
