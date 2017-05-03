@@ -29,4 +29,11 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+
+
+    /*public function sendResetLinkEmail()
+    {
+        return dd('programa aqui el envio del link');
+    }*/
 }

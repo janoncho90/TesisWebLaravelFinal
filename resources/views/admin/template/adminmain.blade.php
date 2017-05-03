@@ -67,11 +67,22 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Mi Cuenta  <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> {{Auth::user()->name}} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#"> <span class="glyphicon glyphicon-file"></span> Mis Datos</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar Sesión</a></li>
+            <li>
+              <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
+                                                                         document.getElementById('logout-form').submit();">
+                                                                 <span class="glyphicon glyphicon-off"></span>        
+                                                                Cerrar Sessión
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                {{ csrf_field() }}
+                                                            </form>
+            </li>
           </ul>
 
         </div>

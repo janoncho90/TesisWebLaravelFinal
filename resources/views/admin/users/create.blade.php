@@ -1,7 +1,7 @@
 @extends('admin.template.adminmain')
 @section('title','Crear Usuario')
 @section('content')
-<br><br><br><br><br>
+<br><br><br><br>
 <div class="row">
   <div class="col-md-4"></div>
 	  <div class="col-md-4">

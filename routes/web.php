@@ -15,8 +15,21 @@ Route::get('/', function () {
     return view('home.index');
 });
 
+Route::get('/index', function () {
+    return view('home.index');
+});
+
 Route::get('/admin', function () {
 		 return view('admin.index');
+	});
+
+Route::get('/profile', function () {
+		 return view('profile.index');
+	});
+
+Route::get('/profile/index',function()
+	{
+		return view('profile.index');
 	});
 
 
@@ -31,3 +44,9 @@ Route::group(['prefix'=> 'admin'],function()
     Route::resource('states','StatesController');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/login','Auth\LoginController@index');
