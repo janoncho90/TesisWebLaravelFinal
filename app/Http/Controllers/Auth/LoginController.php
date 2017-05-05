@@ -63,12 +63,12 @@ class LoginController extends Controller
                 // Si es roll administrador lo redirecciona al panel de administrador
                 if(Auth::user()->rol_id == 1)
                 {
-                        return Redirect::to('/admin');
+                        return Redirect::to('/admin/index');
                 }
                 elseif(Auth::user()->rol_id == 2)
                 {
                     // De ser otro tipo de roll, lo enviara a la seccion de solicitudes
-                    return Redirect::to('/profile');
+                    return Redirect::to('/profile/index');
                 }
                 else
                 {

@@ -29,6 +29,44 @@ class UsersController extends Controller
 		return redirect()->route('users.index');
     }
 
+    public function showRegister()
+    {
+        return view('home.register');
+    }
+
+    public function register(Request $request)
+    {
+        //verificar que no exista el correo
+        $correo=User::where('email', $request->email)->first();
+
+
+        if($correo==null)
+        {
+            //verificar que no exista el nickname
+            $nickname = User::where('nickname', $request->nickname)->first();
+            if($nickname==null)
+            {
+                 //creo al nuevo usuario
+                 $user=new User($request->all());
+                 $user->password=password_hash ( $request->password, PASSWORD_BCRYPT );
+                 $user->rol_id=2; 
+                 $user->save();
+                 flash('Su cuenta ha sido creada con éxito!!!')->success();
+                 return redirect()->route('login');
+            }
+            else
+            {
+                flash('El nickname ingresado ya se encuentra en uso')->error();
+                return redirect()->route('registroGet');
+            }
+        }
+        else
+        {
+            flash('El correo ingresado ya se encuentra en uso')->error();
+            return redirect()->route('registroGet');
+        }
+    }
+
     public function edit($id)
     {
           $user=User::find($id);

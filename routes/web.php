@@ -19,22 +19,25 @@ Route::get('/index', function () {
     return view('home.index');
 });
 
-Route::get('/admin', function () {
+
+Route::get('/registro','UsersController@showRegister')->name('registroGet');
+
+Route::post('/registro','UsersController@register')->name('registroPost');
+
+
+/*Route::get('/profile/index',function()
+	{
+		return view('profile.index');
+	});*/
+
+//rutas del administrador
+Route::group(['prefix'=> 'admin','middleware'=>'auth'],function()
+{
+
+	Route::get('/index', function () {
 		 return view('admin.index');
 	});
 
-Route::get('/profile', function () {
-		 return view('profile.index');
-	});
-
-Route::get('/profile/index',function()
-	{
-		return view('profile.index');
-	});
-
-
-Route::group(['prefix'=> 'admin'],function()
-{
     Route::resource('users','UsersController');
 
     Route::resource('stores','StoresController');
@@ -42,6 +45,18 @@ Route::group(['prefix'=> 'admin'],function()
     Route::resource('rols','RolsController');
 
     Route::resource('states','StatesController');
+
+});
+
+
+//rutas de los miembros
+
+Route::group(['prefix'=>'profile','middleware'=>'auth'],function()
+{
+
+    Route::get('/index', function () {
+		 return view('profile.index');
+	});
 
 });
 
