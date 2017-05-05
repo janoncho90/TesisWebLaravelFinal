@@ -44,7 +44,7 @@
 					<div class="formgroup">
 						
 						{!! Form::label('rol_id','Tipo de Usuario')!!}
-						{!! Form::select('rol_id',[''=>'Seleccione un Tipo', '1'=>'Administrador','2'=>'Miembro'],null, ['class'=>'form-control','required'])!!}
+						{!!Form::select('rol_id',$rols, null,['class'=>'form-control','required']) !!}
 					</div>
 
 					<br>

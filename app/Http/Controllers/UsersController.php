@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Store;
+use App\Rol;
 use Laracast\Flash\Flash;
 
 class UsersController extends Controller
@@ -12,12 +13,18 @@ class UsersController extends Controller
 	 public function index()
     {
         $users=User::orderBy('id','ASC')->paginate(10);
-        return view('admin.users.index')->with('users',$users);
+        $rols=Rol::all();
+        return view('admin.users.index')->with('users',$users)->with('rols',$rols);
     }
 
      public function create()
     {
-          return view('admin.users.create');
+          $rols=Rol::all();
+          foreach($rols as $rol)
+          {
+            $rols_array[$rol->id] = $rol->type;
+          }
+          return view('admin.users.create')->with('rols',$rols_array);
     }
 
     public function store(Request $request)
@@ -70,14 +77,26 @@ class UsersController extends Controller
     public function edit($id)
     {
           $user=User::find($id);
-          return view('admin.users.edit')->with('user' , $user);
+          $rols=Rol::all();
+          foreach($rols as $rol)
+          {
+            $rols_array[$rol->id] = $rol->type;
+          }
+          return view('admin.users.edit')->with('user' , $user)->with('rols',$rols_array);
     }
 
      public function update(Request $request, $id)
     {
         $user=User::find($id);
+
+        $user->rol_id=$request->rol_id;
+
+        $user->save();
+
+        flash('El usuario ha sido actualizado con éxito!!!')->success();
+        return redirect()->route('users.index');
         
-        $usernickname = User::where('nickname', $request->nickname)->first();
+        /*$usernickname = User::where('nickname', $request->nickname)->first();
         $useremail = User::where('email', $request->email)->first();
         if($usernickname!=null && $usernickname != $user)
         {
@@ -101,7 +120,7 @@ class UsersController extends Controller
             $user->save();
             flash('El usuario ha sido actualizado con éxito!!!')->success();
             return redirect()->route('users.index');
-        }
+        }*/
        
         
     }

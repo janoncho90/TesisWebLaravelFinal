@@ -46,6 +46,11 @@ Route::group(['prefix'=> 'admin','middleware'=>'auth'],function()
 
     Route::resource('states','StatesController');
 
+    Route::get('states/{id}/destroy',[
+    		'uses'=>'StatesController@destroy',
+    		'as'=>'states.destroy'
+    	]);
+
 });
 
 

@@ -63,7 +63,15 @@
 @yield('content')
 </div>
     
-
+<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    © 2017 <a target="_blank" href="http://aunclick.esy.es/" title="Comida a un Click de distancia">ClickComida</a>. Todos Los Derechos Reservados
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 

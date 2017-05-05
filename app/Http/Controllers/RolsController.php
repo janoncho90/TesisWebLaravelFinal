@@ -61,7 +61,8 @@ class RolsController extends Controller
      */
     public function edit($id)
     {
-        //
+         $rol=Rol::find($id);
+         return view('admin.rols.edit')->with('rol' , $rol);
     }
 
     /**
@@ -73,7 +74,14 @@ class RolsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol=Rol::find($id);
+
+        $rol->type=$request->type;
+
+        $rol->save();
+
+        flash('El Rol ha sido actualizado con éxito!!!')->success();
+        return redirect()->route('rols.index');
     }
 
     /**

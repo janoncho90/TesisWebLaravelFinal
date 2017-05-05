@@ -61,7 +61,8 @@ class StatesController extends Controller
      */
     public function edit($id)
     {
-        //
+         $state=State::find($id);
+         return view('admin.states.edit')->with('state' , $state);
     }
 
     /**
@@ -73,7 +74,14 @@ class StatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $state=State::find($id);
+
+        $state->description=$request->description;
+
+        $state->save();
+
+        flash('El Estado ha sido actualizado con éxito!!!')->success();
+        return redirect()->route('states.index');
     }
 
     /**
@@ -84,6 +92,9 @@ class StatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $state=State::find($id);
+        $state->delete();
+        flash('El Estado '.$state->description.' ha sido eliminado con éxito!!!')->warning();
+        return redirect()->route('states.index');
     }
 }

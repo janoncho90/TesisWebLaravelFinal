@@ -27,20 +27,23 @@
                                	<td>{{$user->lastname}}</td>
                                	<td>{{$user->nickname}}</td>
                                	<td>{{$user->email}}</td>
-                               	<td>@if($user->rol_id == 1)
+                               	<td>
+								@foreach ($rols as $rol)
 
-                               	<span class="label label-danger">Admin</span>
+	                               	@if($user->rol_id == $rol->id)
+                                            @if($rol->id == 1)
+	                               				<span class="label label-danger">
+											@elseif($rol->id == 2)
+												<span class="label label-success">
+											@else
+												<span class="label label-warning">
+											@endif
 
-                               	@elseif($user->rol_id ==2)
+	                               			{{$rol->type}}</span>
 
-                               	<span class="label label-success">Miembro</span>
-
-                               	@else
-
-                               	<span class="label label-warning">Repartidor</span>
-
-                               	@endif
-
+	                               	@endif
+	                               	
+								@endforeach
                                	</td>
                                	<td><a href="{{route('users.edit',$user->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                                	<a href="{{route('users.show',$user->id)}}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>

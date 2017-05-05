@@ -48,7 +48,7 @@
           <ul class="nav navbar-nav">
            
            <li>
-                        <a href="{{url('admin')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a>
+                        <a href="{{url('admin/index')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a>
                     </li>
                     <li>
                         <a href="{{route('users.index')}}"><span class="glyphicon glyphicon-user"></span> Usuarios</a>

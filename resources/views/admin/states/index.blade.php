@@ -21,7 +21,7 @@
 			
 			  <div class="panel-body">
 			    <div class="table-responsive">
-			   
+			   @include('flash::message')
 					  <table class="table table-striped table-bordered">
 					      <thead>
 					      	<th>ID</th><th>Descripción</th><th>Accion</th>
@@ -31,7 +31,10 @@
                                <tr>
                                	<td>{{$state->id}}</td>
                                	<td>{{$state->description}}</td>
-                               	<td><a href="" class="btn btn-success"></a></td>
+                               	<td><a href="{{route('states.edit',$state->id)}}" class="btn btn-warning" "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                               	    <a href="{{route('states.destroy',$state->id)}}" onclick="return confirm('¿Seguro que deseas Eliminar este Estado?')" class="btn btn-danger"
+                               	    ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                               	</td>
                                </tr>
 					      	@endforeach
 					      </tbody>

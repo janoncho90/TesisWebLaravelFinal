@@ -1,5 +1,5 @@
 @extends('admin.template.adminmain')
-@section('title','Editar Usuario')
+@section('title','Editar Estado')
 @section('content')
 <br><br><br><br>
 <div class="row">
@@ -9,19 +9,20 @@
 
 		<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3 class="panel-title">Editar usuario {{$user->nickname}}</h3>
+			    <h3 class="panel-title">Editar Estado {{$state->description}}</h3>
 			  </div>
 			  
 			  @include('flash::message')
 			  <div class="panel-body">
-			    {!! Form::open(['route'=>['users.update', $user], 'method'=>'PUT']) !!}
+			    {!! Form::open(['route'=>['states.update', $state], 'method'=>'PUT']) !!}
 
 					
 
 					<div class="formgroup">
 						
-						{!! Form::label('rol_id','Tipo de Usuario   ')!!}
-						{!!Form::select('rol_id',$rols, $user->rol_id,['class'=>'form-control','required']) !!}
+						{!! Form::label('description','Descripción')!!}
+						{!! Form::text('description',$state->description, ['class'=>'form-control','placeholder'=>'Descripcion del Estado','required'])!!}
+
 					</div>
 
 					<br>

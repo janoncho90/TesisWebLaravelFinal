@@ -19,7 +19,7 @@
 
 			  <div class="panel-body">
 			    <div class="table-responsive">
-			     
+			     @include('flash::message')
 					  <table class="table table-striped table-bordered">
 					      <thead>
 					      	<th>ID</th><th>Tipo de Usuario</th><th>Accion</th>
@@ -29,7 +29,7 @@
                                <tr>
                                	<td>{{$rol->id}}</td>
                                	<td>{{$rol->type}}</td>
-                              	<td><a href="" class="btn btn-success"></a></td>
+                              	<td><a href="{{route('rols.edit',$rol->id)}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
                                </tr>
 					      	@endforeach
 					      </tbody>

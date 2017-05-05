@@ -1,4 +1,5 @@
 @extends('home.template.templateprincipal')
+@section('title','Home')
 @section('content')
 
 <div class="jumbotron">
