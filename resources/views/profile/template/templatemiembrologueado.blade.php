@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             </button>
                  <!--logo-->
-                 <a class="navbar-brand" href="{{url('/home')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 25px;">
+                 <a class="navbar-brand" href="{{url('/profile/index')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 25px;">
                  </a>
                 <!--fin logo-->
             </div>

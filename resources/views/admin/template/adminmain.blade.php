@@ -37,7 +37,7 @@
 <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{{url('admin')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 25px;"></a>
+          <a class="navbar-brand" href="{{url('/admin/index')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 25px;"></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

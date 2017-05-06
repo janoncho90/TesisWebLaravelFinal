@@ -38,7 +38,7 @@
 <span class="icon-bar"></span>
 </button>
 
-<a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 110px;height: 30px;"></a>
+<a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" alt="click comida" style="width: 170px;height: 45px;"></a>
 
 </div>
 <div class="collapse navbar-collapse navbar-right">
@@ -47,10 +47,10 @@
     <a href="{{url('/')}}"><span class="glyphicon glyphicon-home"></span> Inicio</a>
 </li>
 <li>
-    <a href="{{route('registroGet')}}"><span class="glyphicon glyphicon-user"></span> Registrarme</a>
+    <a href="{{route('registroGet')}}"><span class="glyphicon glyphicon-user"></span> Regístrate</a>
 </li>
 <li>
-    <a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Loguearme</a>
+    <a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Ingresa</a>
 </li>
 </ul>
 </div>
@@ -58,10 +58,10 @@
 </nav> 
 </header>
 
-<div class="container">
-<br><br>
+
+
 @yield('content')
-</div>
+
     
 <footer id="footer" class="midnight-blue">
         <div class="container">

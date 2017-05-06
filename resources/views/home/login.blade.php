@@ -1,12 +1,20 @@
 @extends('home.template.templateprincipal')
 
 @section('content')
-<br><br><br>
-<div class="container">
-    <div class="row">
+
+
+
+<section id="services" class="service-item">
+       <div class="container">
+            <div class="center wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+                <p class="lead">Ingrese su Correo Electrónico y su clave.</p>
+            </div>
+
+            <div class="center wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+            <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><h3>Inicio de Sesión</h3></div>
+                <div class="panel-heading"><h3></h3></div>
                 <div class="row">
                   <div class="col-md-1"></div>
                   <div class="col-md-1"></div>
@@ -23,7 +31,7 @@
                             <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="example@gmail.com">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -37,7 +45,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="********">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -73,5 +81,20 @@
             </div>
         </div>
     </div>
-</div>
+            </div>
+
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
