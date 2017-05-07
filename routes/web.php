@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//rutas de facebook login
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider')->name('facebook');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/', function () {
     return view('home.index');
@@ -62,6 +65,18 @@ Route::group(['prefix'=>'profile','middleware'=>'auth'],function()
     Route::get('/index', function () {
 		 return view('profile.index');
 	});
+
+    Route::get('mydata/{id}', ['uses'=>'UsersController@mydataShow'])->name('mydataGet');
+
+    Route::post('mydata/{id}', ['uses'=>'UsersController@editMyData'])->name('editarDatos');
+
+    Route::get('adresses/{id}',['uses'=>'UsersController@myaddressesShow'])->name('myaddressesGet');
+
+    Route::post('adresses/{id}',['uses'=>'UsersController@insertAddress'])->name('insertAddress');
+
+    Route::get('phones/{id}',['uses'=>'UsersController@myphonesShow'])->name('myphonesGet');
+    
+    Route::post('phones/{id}',['uses'=>'UsersController@insertPhone'])->name('insertPhone');
 
 });
 

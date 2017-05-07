@@ -132,5 +132,29 @@ class UsersController extends Controller
         return view('admin.users.detail')->with('user',$user)->with('stores',$stores);
     }
 
+    public function mydataShow($id)
+    {
+          $user=User::find($id);
+          return view('profile/mydata')->with('user' , $user);
+    }
 
+    public function editMyData(Request $request, $id)
+    {
+        $user=User::find($id);
+        $usernickname=User::where('nickname',$request->nickname)->first();
+        if($usernickname!=null && $usernickname != $user)
+        {
+           
+           flash('El nickname que ha ingresado ya está en uso!!!')->error();
+           return view('profile/mydata')->with('user',$user);
+        }
+        else
+        {
+           $user->name=$request->name;
+           $user->lastname=$request->lastname;
+           $user->nickname=$request->nickname;
+           $user->save();
+           return view('profile/mydata')->with('user',$user);
+        }
+    }
 }

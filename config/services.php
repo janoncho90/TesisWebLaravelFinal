@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+    'client_id' => '526858891036123',
+    'client_secret' => '7992ad3aa7997de049a4918bb3adbc98',
+    'redirect' => 'http://aunclick.esy.es/profile/index',
+],
+
 ];

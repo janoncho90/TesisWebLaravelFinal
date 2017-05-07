@@ -76,13 +76,11 @@
                       <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                         <!--inicio dropdown del menu-->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span>{{ Auth::user()->email }}  <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-hand-right"></span>   {{ Auth::user()->email }}  <span class="caret"></span></a>
 
                      
                               <ul class="dropdown-menu">
-                                <li><a href="#"> <span class="glyphicon glyphicon-file"></span> Mis Datos</a></li>
-
-                                <li role="separator" class="divider"></li>
+                                <li><a href="{{route('mydataGet', Auth::user()->id)}}"> <span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
 
                                 <li>
                                                             <a href="{{ route('logout') }}"
@@ -111,6 +109,15 @@
     @yield('content')
 
 
+<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    © 2017 <a target="_blank" href="http://aunclick.esy.es/" title="Comida a un Click de distancia">ClickComida</a>. Todos Los Derechos Reservados
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 

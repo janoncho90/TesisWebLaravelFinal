@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -80,5 +81,17 @@ class LoginController extends Controller
         flash('Correo Electrónico o contraseña incorrectos!!!')->error();
         return Redirect::to('/login')
                     ->withInput();
+    }
+
+     public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+     public function handleProviderCallback()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        // $user->token;
     }
 }
