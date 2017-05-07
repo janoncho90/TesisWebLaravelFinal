@@ -78,7 +78,7 @@ class LoginController extends Controller
             
         }
         // En caso de que la autenticacion haya fallado manda un mensaje al formulario de login y tambien regresamos los valores enviados con withInput().
-        flash('Correo Electrónico o contraseña incorrectos!!!')->error();
+        flash('Correo Electrónico o contraseña incorrectos!!!')->error()->important();
         return Redirect::to('/login')
                     ->withInput();
     }

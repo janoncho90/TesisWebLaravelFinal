@@ -70,13 +70,16 @@ Route::group(['prefix'=>'profile','middleware'=>'auth'],function()
 
     Route::post('mydata/{id}', ['uses'=>'UsersController@editMyData'])->name('editarDatos');
 
-    Route::get('adresses/{id}',['uses'=>'UsersController@myaddressesShow'])->name('myaddressesGet');
+    Route::get('addresses/{id}',['uses'=>'UsersController@myaddressesShow'])->name('myaddressesGet');
 
-    Route::post('adresses/{id}',['uses'=>'UsersController@insertAddress'])->name('insertAddress');
+    Route::post('addresses/{id}',['uses'=>'UsersController@insertAddress'])->name('insertAddress');
 
     Route::get('phones/{id}',['uses'=>'UsersController@myphonesShow'])->name('myphonesGet');
     
     Route::post('phones/{id}',['uses'=>'UsersController@insertPhone'])->name('insertPhone');
+
+    Route::post('email/edit/{id}',['uses'=>'UsersController@editarCorreo'])->name('editarCorreo');
+    Route::post('password/edit/{id}',['uses'=>'UsersController@cambiarPassword'])->name('cambiarPassword');
 
 });
 
