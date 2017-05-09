@@ -40,7 +40,7 @@
         <h4 class="modal-title">Ingrese su nuevo Correo Electrónico</h4>
       </div>
       <div class="modal-body">
-        {!! Form::open(['route'=>['editarCorreo', $user->id], 'method'=>'POST']) !!}
+        {!! Form::open(['route'=>['editarCorreo', Auth::user()->id], 'method'=>'POST']) !!}
 
 											<div class="formgroup">
 
@@ -84,7 +84,7 @@
         <h4 class="modal-title">Proporcione sus contraseñas</h4>
       </div>
       <div class="modal-body">
-        {!! Form::open(['route'=>['cambiarPassword', $user->id], 'method'=>'POST']) !!}
+        {!! Form::open(['route'=>['cambiarPassword', Auth::user()->id], 'method'=>'POST']) !!}
 
 											<div class="formgroup">
 
@@ -138,7 +138,7 @@
         <h4 class="modal-title">Realize sus cambios</h4>
       </div>
       <div class="modal-body">
-      {!! Form::open(['route'=>['editarDatos', $user->id], 'method'=>'POST']) !!}
+      {!! Form::open(['route'=>['editarDatos', Auth::user()->id], 'method'=>'POST']) !!}
 
 											<div class="formgroup">
 

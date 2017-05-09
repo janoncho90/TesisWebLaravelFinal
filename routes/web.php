@@ -34,7 +34,7 @@ Route::post('/registro','UsersController@register')->name('registroPost');
 	});*/
 
 //rutas del administrador
-Route::group(['prefix'=> 'admin','middleware'=>'auth'],function()
+Route::group(['prefix'=> 'admin','middleware'=>['auth','adminmiddleware']],function()
 {
 
 	Route::get('/index', function () {
@@ -59,7 +59,7 @@ Route::group(['prefix'=> 'admin','middleware'=>'auth'],function()
 
 //rutas de los miembros
 
-Route::group(['prefix'=>'profile','middleware'=>'auth'],function()
+Route::group(['prefix'=>'profile','middleware'=>['auth','miembromiddleware']],function()
 {
 
     Route::get('/index', function () {
@@ -80,6 +80,10 @@ Route::group(['prefix'=>'profile','middleware'=>'auth'],function()
 
     Route::post('email/edit/{id}',['uses'=>'UsersController@editarCorreo'])->name('editarCorreo');
     Route::post('password/edit/{id}',['uses'=>'UsersController@cambiarPassword'])->name('cambiarPassword');
+
+
+    Route::get('stores/create',['uses'=>'UsersController@createStoreShow'])->name('createStoreShow');
+    Route::post('stores/create/{id}',['uses'=>'UsersController@createStore'])->name('createStore');
 
 });
 

@@ -12,13 +12,14 @@ use Laracast\Flash\Flash;
 
 class UsersController extends Controller
 {
+  //mostrar todos los usuarios en admin/users
 	 public function index()
     {
         $users=User::orderBy('id','ASC')->paginate(10);
         $rols=Rol::all();
         return view('admin.users.index')->with('users',$users)->with('rols',$rols);
     }
-
+ //crear un rol admin
      public function create()
     {
           $rols=Rol::all();
@@ -28,14 +29,14 @@ class UsersController extends Controller
           }
           return view('admin.users.create')->with('rols',$rols_array);
     }
-
+  //registrar admin
     public function store(Request $request)
     {
         $user=new User($request->all());
         $user->password=password_hash ( $request->password, PASSWORD_BCRYPT ); 
-		$user->save();
+		    $user->save();
         flash('El usuario '.$user->nickname.' ha sido creado con éxito!!!')->success()->important();
-		return redirect()->route('users.index');
+		    return redirect()->route('users.index');
     }
 
     public function showRegister()
@@ -75,7 +76,7 @@ class UsersController extends Controller
             return redirect()->route('registroGet');
         }
     }
-
+    //mostrar editar rol de usuario
     public function edit($id)
     {
           $user=User::find($id);
@@ -86,7 +87,7 @@ class UsersController extends Controller
           }
           return view('admin.users.edit')->with('user' , $user)->with('rols',$rols_array);
     }
-
+    //actualizar el rol de un usuario
      public function update(Request $request, $id)
     {
         $user=User::find($id);
@@ -126,20 +127,23 @@ class UsersController extends Controller
        
         
     }
-
+    //ver el detalle de un usuario (vista del admin)
     public function show($id)
     {
         $user=User::find($id);
         $stores=Store::all()->where('user_id',$id);
         return view('admin.users.detail')->with('user',$user)->with('stores',$stores);
     }
+    
 
+
+    //mostrar los datos de un usuario miembro
     public function mydataShow($id)
     {
           $user=User::find($id);
           return view('profile/mydata')->with('user' , $user);
     }
-
+    //editar los datos de un usuario miembro
     public function editMyData(Request $request, $id)
     {
         $user=User::find($id);
@@ -163,7 +167,7 @@ class UsersController extends Controller
         }
     }
 
-
+    //editar correo de un usuario miembro
      public function editarCorreo(Request $request, $id)
     {
         $user=User::find($id);
@@ -195,7 +199,7 @@ class UsersController extends Controller
          }   
     }
 
-
+    //cambiar password de un usuario miembro
      public function cambiarPassword(Request $request, $id)
     {
         $user=User::find($id);
@@ -219,7 +223,7 @@ class UsersController extends Controller
               return view('profile/mydata')->with('user',$user);
          }   
     }
-
+    //mostrar las direcciones de un usuario miembro
     public function myaddressesShow($id)
     {
       $user=User::find($id);
